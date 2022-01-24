@@ -1,0 +1,309 @@
+
+<html>
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="KEYWORDS" content="TC学堂,Total Commander教程,善用佳软,software,xbeta.info">
+  <meta name="DESCRIPTION" content="TC学堂，解压缩功能，pack与unpack，各种插件plugin让Total Commander/TC更加方便。压缩文件视同目录">
+  <meta name="GENERATOR" content="gvim">
+  <meta name="AUTHOR" content="http://xbeta.info">
+    <link rel="stylesheet" href="1.css" type="text/css">
+  <title>[TC学堂] 3.压缩及插件 :: xbeta(善用佳软)</title>
+</head>
+<body>
+<a href="http://xbeta.info" target="_top">善用佳软</a>/<a href="index.htm" target="_top">TC学堂</a>/正文<br />
+<br />
+<h1>第3讲：压缩及插件(2010-03-03更新|test)</h1>
+　　通过前2讲的学习和一个多月的使用，相信各位读者对TC已经有了较深刻的感受，并在选择定位方面有了扎实的基本功。下面，我们就进入TC最常用的各种功能，并配合讲解相关的插件应用。<br />
+　　<strong>本讲主要内容</strong>：先看一个Flash演示<a href="#h1">[↘]</a>，直观了解TC插件概述<a href="#h1.1">[↘]</a>、压缩插件的安装和使用<a href="#h1.2">[↘]</a>，并进一步解释TC的压缩是广义的<a href="#h1.3">[↘]</a>。然后，回到狭义的压缩，展示TC如何进行压缩<a href="#h2.1">[↘]</a>、解压缩<a href="#h2.2">[↘]</a>，以及“压缩文件视同目录<a href="#h2.3">[↘]</a>”的应用和原理；并指出，某些文件表面为exe，实际是特殊的压缩文件，也可用TC处理<a href="#h3">[↘]</a>。最后，再次回到TC插件，展示了一些重要的TC压缩及其功能<a href="#h4">[↘]</a>。<br />
+　　<strong>本讲主要操作</strong>：Alt+F5，Alt+F9，F2（或Shift+F6），Ctrl+PgDn（及Ctrl+→、Ctrl+←）。 <br/>
+<blockquote id="index">
+目录<br/>
+<a href="#h1">一、压缩和插件的直观演示</a><br />
+　　<a href="#h1.1">1. 插件概述</a><br />
+　　<a href="#h1.2">2. 插件的安装</a><br />
+　　<a href="#h1.3">3. 压缩的广义理解</a><br />
+　　<a href="#h1.4">4. 插件的配置</a><br />
+<a href="#h2">二、传统的压缩</a><br />
+　　<a href="#h2.1">1. Alt+F5/Ctrl+alt+F5：压缩</a><br />
+　　<a href="#h2.2">2. Alt+F9：解压缩</a><br />
+　　<a href="#h2.3">3. 压缩包视同文件夹</a><br />
+　　<a href="#h2.4">4. 附：“压缩包视同文件夹”的相关配置</a><br />
+　　<a href="#h2.5">5. 附：如何知道是ZIPlikeDirectory</a><br />
+　　<a href="#h2.6">6. 前台视同文件夹，后台仍是解压</a><br />
+　　<a href="#h2.7">7. 全部解压</a><br />
+　　<a href="#h2.8">8. 对压缩包内多个文件F3</a><br />
+<a href="#h3">三、压缩包与exe</a><br />
+　　<a href="#h3.1">1. ctrl+PageDown</a><br />
+　　<a href="#h3.2">2. F2:从zip到exe</a><br />
+<a href="#h4">四、更多压缩格式及插件</a><br />
+　　<a href="#h4.1">1. 压缩的一般原则</a><br />
+　　<a href="#h4.2">2. 7-Zip插件</a><br />
+　　<a href="#h4.3">3. 更多压缩插件</a><br />
+<a href="#h5">五、总结及作业</a><br />
+　　<a href="#h5.1">1. 总结</a><br />
+　　<a href="#h5.2">2. 作业</a><br />
+<a href="#update">版本历史</a><br />
+</blockquote>
+
+<h2 id="h1">一、压缩和插件的直观演示　<sup><a href="#index">[↖]</a></sup></h2>
+　　为了对TC的压缩功能及插件有一个直观印象，先请大家先看如下的视频演示（500x320, 87KB）。<br />
+<embed src="tc3_lst.swf" quality="high" loop="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" height="320" width="500"><br />
+　　如果能基本明白，请接着看下面的解释。<br />
+　　如果没太明白，则请多看几遍，加深印象，以便于更好地理解后面的讲解。<br />
+<h3 id="h1.1">1.&nbsp;插件概述　<sup><a href="#index">[↖]</a></sup></h3>
+　　演示的第一部分，是安装插件。<br />
+　　为此，我们了解一下什么是插件。插件是对某种软件的功能增强，通常它不能独立运行，而要通过主体软件进行调用。<br />
+　　有些软件——可能是大多数软件——是封闭的，也就是说不支持插件。而有些软件——很多是极其优秀的软件，比如Total Commander、Firefox、Becky——则支持插件，并公开插件开发规范。这样做的好处是：可以让更多人为这些软件来提供插件，大大扩展软件的功能。<br />
+　　插件是一个较为通用的说法，对应于英语中的plugin。但也有时称为扩展，英文也有addon, extension这种说法。不同软件所采用的习惯不全一致。有时还会把某一个作为其他几个的总称。如下图所示，TC官网（<a href="http://www.ghisler.com/addons.htm" target="_blank">http://www.ghisler.com/addons.htm</a>）把插件（Plugin）和语言包、及一些外部工具通称为扩展（Addon）。但对于几类Plugin，官方网站也称为 “xxx extensions (plugins)”。可见也不是很统一，大家只要知其大概就可以了。<br />
+<img style="width: 370px; height: 147px;" alt="tc3_011.png" src="tc3_011.png"><br />
+　　上图中，还可以看到，TC的插件可以分为4类。它们的区分标准是用途不同、相应调用方式不同，而实质上并无区别，都是dll，尽管它们的后缀表面上分别是wlx、wcx、wfx、wdx。<br />
+<ol>
+  <li>比如，查看程序插件就是给F3（快速查看）、Ctrl+q（在一侧窗口快速查看）扩展用的，后缀为wlx。在前两讲中，我们演示了张学思版TC可以对各种文件类型进行F3查看，但有些同学可能在实践中发现，用官方TC版F3查看某些文件类型时却没有得到预期结果。其原因就是，张学思版安装了对应的“查看程序插件”，而官方版未含这些插件。</li>
+  <li>同理，压缩程序插件主要——是主要，不是全部——是给Alt+F5（生成压缩文件）功能用的，也是本讲的重点。</li>
+  <li>文件系统插件则是功能非常独特的一类，比如让你处理Linux分区、网络邻居、注册表等。</li>
+  <li>内容插件则可以用于搜索、文件列表中，负责把文件内容的信息提取出来。</li>
+</ol>
+<br />
+　　有些插件是TC作者开发的，而更多插件则是由第三方开发。这种情况有利弊。好的方面是插件很多，可实现的功能很多。坏的一面是，因为不同开发者的水平不同，所以开发的插件在性能和稳定性方面会有差距。但总起来说，TC的插件都还不错，或者，有些原则可帮助用户找到高质量的插件。<br />
+<br />
+<h3 id="h1.2">2.&nbsp;插件的安装　<sup><a href="#index">[↖]</a></sup></h3>
+　　安装TC插件的过程，从上面的演示可以看到，就是在TC中双击下载的插件包——它们通常是zip格式——按提示确定即可。而安装后的效果，实际是把一些文件复制到TC下的plugin目录，并在对应的ini文件中做相应的配置记录。实际上，在早期的TC版本中，安装插件的过程都是手工解压的。之所以较高版本的TC可以自动安装，是因为在插件的压缩包中有一个 pluginst.inf 文件。比如，wcx_catalogmaker_2.4.zip 插件中的 pluginst.inf 文件（内容如下），分别指明了插件描述、类型、核心文件、安装目录、对应的文件类型这些信息。更多参见 <a href="http://www.ghisler.ch/board/viewtopic.php?t=5463">Ghisler的说明</a>。<br />
+<blockquote>
+[plugininstall]<br />
+description=Catalog Maker plugin v 2.4<br />
+type=wcx<br />
+file=CatalogMaker.wcx<br />
+defaultdir=CatalogMaker<br />
+defaultextension=lst<br />
+</blockquote>
+<br />
+<h3 id="h1.3">3.&nbsp;压缩的广义理解　<sup><a href="#index">[↖]</a></sup></h3>
+　　有些朋友在看完演示后，可能很疑惑。不是讲压缩插件吗？为什么没生成一个zip或rar文件呢？生成的.lst到底是怎么回事？<br />
+　　其实，TC不仅在处理“压缩文件”（比如zip或rar）方面很强大，更通过压缩插件创新性地拓展了“压缩”概念，变为了一个广义的“处理”概念。如<br />
+　　- “压缩”为 chm；<br />
+　　- “压缩”为 iso，就是光盘镜像；<br />
+　　- “压缩”为 “粉末”。这是什么意思？就是把文件安全删除，彻底粉碎。<br />
+　　- “压缩”为 文件列表，就是演示中的list。<br />
+<br />
+<h3 id="h1.4">4. 插件的配置　<sup><a href="#index">[↖]</a></sup></h3>
+　　大家放开思想，想象一下：如果TC不是通过压缩插件来实现上述功能，那么只好用选中对象，用菜单A1或热键B1来实现chm功能，用菜单A2或热键B2来实现iso功能……这样很繁杂。而统一按压缩插件机制，则只要一个Alt+F5就行了。当然，进入Alt+F5之后，仍然要告知TC，我们最终要实现何种功能。具体的告知办法，就是在操作时指定“压缩”文件的类型（zip或lst或iso），然后TC按我们配置，调用相应的插件。<br />
+　　知道这一机制后，再回想刚才的演示，是不是很清楚了？你不妨再看一遍演示。<br />
+<br />
+<h2 id="h2">二、传统的压缩　<sup><a href="#index">[↖]</a></sup></h2>
+　　在第一讲中，曾建议大家自学一篇“用好Total Commander的十大替代功能”，其中提到了TC几乎可以代替压缩软件。实际上，在很长一段时期，我的机器只有TC而没有专门的压缩工具。因为，TC 处理压缩文件确实非常方便！<br />
+<h3 id="h2.1">1. Alt+F5/Ctrl+alt+F5：压缩　<sup><a href="#index">[↖]</a></sup></h3>
+　　视频（321x501，47KB）。<br />
+<embed src="tc3_zip.swf" quality="low" loop="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" height="321" width="501">
+　　<br />
+　　按下Alt+F5，是将当前选中内容压缩到对面窗口。<br/>
+　　而多数情况下，我们需要压缩到当前目录。这样设定即可：在wincmd.ini文件中的 [Shortcuts] 段加入如下一句，<br/>
+<blockquote>
+CA+F5=cm_PackFiles
+</blockquote>
+然后按 ctrl+ alt + F5，在生成压缩文件时，就置于当前目录了。shanny版、张学思版TC已内置了这一定义，大家可以直接使用。（鸣谢shanny）<br/>
+　　<br />
+<span style="font-weight: bold;">压缩的选项</span><br />
+　　在Alt+F5对话框中，按F1查看相应帮助，理解各选项的含义。通常情况下，我们都会选中前2项。也就是说，包含路径、包含子文件夹。<br />
+<img style="width: 499px; height: 207px;" alt="tc3_012.png" src="tc3_012.png">
+
+<h3 id="h2.2">2. Alt+F9：解压缩　<sup><a href="#index">[↖]</a></sup></h3>
+　　Alt+F9：解压缩，可以理解成上述操作的逆过程。但是要注意，在TC中，比起Alt+F5来，直接Alt+F9的情况则要少得多。为什么呢？两个原因。<br />
+<span style="font-weight: bold;">原因1：要谨慎</span><br />
+　　当你把N个文件压缩时，你洞悉前因后果，对压缩前、后的情况，都有正确的认识或预期。而在解压时，则并不如此。<br />
+　　一来，你可能不清楚：解压出的内容是什么？是否安全？是否要全部解压？<br />
+　　二来，就算对内容很了解，确认安全，比如xbeta告诉你，这个tc.zip就是我的TC文件夹，你解压就能直接用。你能直接就解压吗？你是准备解压到program files文件夹呢，还是准备解压到program files/tc文件夹下呢？也就是说，zip包内可能包含、也可能不包含最上层的文件夹。至少我N年前用WinZip和WinRar时，它们的处理机制就不太一致。<br />
+　　并且，解压和压缩不同的是，TC并没有提供解压到当前目录、以文件名为子目录名的快捷键，而只能在对话框中进行手工选择，正如我以前在版上总结的：<br/>
+<blockquote>
+解压（Alt+F9）到当前目录<br/>
+　　推荐：Alt+F9，Backspace，Enter<br />
+　　说明：<br />
+　　① Backspace作用是把弹出对话框的路径（默认为对面窗口）删除，这样就成了当前目录。<br />
+　　② 用Backspace而不用Del的原因是，Backspace更大、与后面的Enter更接近，更容易按。<br />
+　　③ 如果需要新建目录（对于压缩文件不包含顶级目录），则Backspace后添加。<br />
+　　④ 全部操作可键盘完成。<br />
+　　/>
+　　其他方式：<br />
+　　·用TC打开包，拖放到表示“返回父目录”的箭头上。（还算方便，不能手工添加目录）<br />
+　　·用TC打开包，全选或部分选中，F5或拖动，Backspace，Enter。（适用于解压部分内容）<br />
+　　·先“两个窗口相同”，再解压<br />
+　　·先展开显示（Ctrl+→ 或 Ctrl+PgDn）到对面，再<F5>过来。（这个也不错）<br />
+　　·先解压到对面，再F6移动过来<br />
+　　·Shift+Enter，调用系统解压程序……（特殊情况下会用到）
+</blockquote>
+　　<span style="color:red;">补充：TC解压助手</span>：如果你有更多需求，希望实现更高程度的自动化，可参见<a href="http://xbeta.info/tc-unpack.htm">TC-unpack：TC解压助手</a>。TC-unpack（TC解压助手）是用来辅助 TC（Total Commander）解压功能的一小段AutoHotkey脚本，用来在解压对话框中自动按键，功能有二：一是删除解压路径，以解压到当前目录；二是选中 “Unpack each archive to a &separate subdir (name of the archive)”/“将各压缩包分别解压到同名的子文件夹中(&S)”项，以实现把文件名作为解压后的目录名。<br/>
+<br />
+<span style="font-weight: bold;">原因2：有更方便的做法</span><br />
+　　由于在TC中，压缩包视同为文件夹，所以，很多情况下无须解压。详情见下。<br />
+　　在余下的少数需要解压的情况下，先进入压缩包，再F5的方式，比Alt+F9更安全、更透明。<br />
+<br />
+<h3 id="h2.3">3. 压缩包视同文件夹　<sup><a href="#index">[↖]</a></sup></h3>
+　　大家亲自体验一下，将当前的TC文件夹压缩到对面。然后，在这一压缩文件上按Enter，是否就平滑地进入到zip文件内部，如同进入一个文件夹一样呢？<br />
+<ol>
+  <li>按Ctrl+b，看完全展开功能，是否如同文件夹？</li>
+  <li>按F3或Ctrl+q，看预览功能，是否如同文件夹？</li>
+  <li>进行排序，多标准排序，是否如同文件夹？</li>
+  <li>自定义显示的文件类型，是否如同文件夹？</li>
+  <li>是否可以把一个文件，F5复制到zip内呢？</li>
+  <li>是否可以把一个文件，F5从zip内复制出来呢？</li>
+  <li>是否可以把zip内的一个文件，del进行删除呢？</li>
+  <li>是否可以把一个文件，拖到zip文件中？</li>
+  <li>是否可以打开并编辑zip内的文件，在关闭编辑程序后，zip提示是否更新？</li>
+  <li>是否可以对zip内的文件进行改名？</li>
+  <li>是否可以把zip内的一个文件，F6移出来呢？？？</li>
+  <li>……<br />
+  </li>
+</ol>
+　　你一定要亲自体验一下，才会明白TC在多大程度上，把压缩包视为文件夹，从而减少了不必要的解压。也只有亲自尝试，才会发现上述情况中，有一项其实是不能做到的——不过，也很少遇到这种需求。<br />
+<br />
+<h3 id="h2.4">4. 附：“压缩包视同文件夹”的相关配置　<sup><a href="#index">[↖]</a></sup></h3>
+　　我为什么一直强调，深入了解TC可以提升自己的软件品位呢？因为从TC的工作方式、设置方式，我们可以明白优秀软件是如何处理与用户的关系的。比如在压缩包视同文件夹这一点上，TC首先带给我们一种先进而有新意的操作习惯，不是简单的提高解压的方便性，而是超越解压，避免了不必要的解压。其次，优秀软件应该是平和的，也就是说，给用户选择权。压缩包视同文件夹，这是TC中是默认设置，也是推荐设置。但是如果你不喜欢，你可以随时关闭或开启它。做法如下：<br />
+<br />
+　　<span style="font-weight: bold;">图形化操作方法：</span>菜单“配置”→选项→压缩程序→“将压缩包按文件夹操作”不要选中。<br />
+　　<span style="font-weight: bold;">修改参数文件法：</span>修改wincmd.ini，将其中的ZIPlikeDirectory=1改为0。<br />
+　　<span style="font-weight: bold;">帮助文件相关说明</span>：在图形化设置时，按下F1，可以看到解释：<br />
+　　“将压缩包按文件夹操作”——选中后，你可以在压缩包上双击鼠标显示它的内容。你可以使用Total Commander的正常功能复制，删除和查看压缩包内的文件，向其中添加文件。如果未选中，Total Commander会启动压缩包关联的程序。如果无关联程序，由Total Commander自己打开。<br />
+<br />
+<h3 id="h2.5">5. 附：如何知道是ZIPlikeDirectory　<sup><a href="#index">[↖]</a></sup></h3>
+　　上面一段提到，“将压缩包按文件夹操作”选项对应wincmd.ini之ZIPlikeDirectory。笔者是如何知道的呢？<br />
+　　可能1：学来的。比如，你读完本文后，也知道了这一点。所以，多读多学，便可多得，TC永远有新知。<br />
+　　可能2：无意中得来。比如，逐一查看wincmd.ini字段，发现了这一条。<br />
+　　可能3：xbeta事前也不知道。但基于对TC其他方面的了解，可以确信存在这样的字段，并有能力迅速查出它——实际情况正是这样。孔子云：吾有知乎哉？无知也，叩其两端而竭焉。就是温故知新、举一反三——这正是软件应用的妙处。<br />
+<br />
+　　xbeta是这样做的：<br />
+<ol>
+  <li>选中文件wincmd.ini，ctrl+c, ctrl+v——立此存照。</li>
+  <li>图形化界面中修改配置，并确认——引发变化。</li>
+  <li>选中wincmd.ini及复件，用TC 的比较功能，直接跳转到不同处——两相比较，水落石出！</li>
+</ol>
+<br />
+<h3 id="h2.6">6. 前台视同文件夹，后台仍是解压　<sup><a href="#index">[↖]</a></sup></h3>
+　　压缩包视同文件夹，是一个方便的功能。但所谓视同，是指给用户的感受上，不再需要用户进行解压或考虑解压相关的工作。而其后台，实际上是自动解压的过程。再细究一下，还会引出更多值得探讨的问题。下面跟我一起操作：<br />
+<ol>
+  <li>下载<a href="tc3_test.zip">tc3_test.zip</a>到任意目录。</li>
+  <li>在TC中，打开——也就是进入——tc3_test.zip。</li>
+  <li>选中index.htm，按F3查看。正常的结果是，显示了此网页文件，其中只有一个链接“推荐软件”。<br />
+解释：TC其实并不能直接显示zip内的文件，你看到“这一”网页，实际并不是直接读取zip包内容，而是后台自动、临时解压出的另一个index.htm。</li>
+  <li>在F3预览窗口按7，可以发现窗口标题显示“Lister - [C:\DOCUME~1\xxx\LOCALS~1\Temp\_tc\index.htm”。（xxx代表你的windows用户名）<br />
+解释：由此可知，TC把index.htm临时解压到了“C:\DOCUME~1\xxx\LOCALS~1\Temp\_tc\”，其完整路径为 “c:\Documents and Settings\xxx\Local Settings\Temp\_tc\”。<br />
+验证：你可以直接进入到此目录，找到index.htm文件。</li>
+  <li>在F3预览窗口按Esc，退出预览。这时再看上述文件夹，此文件已消失。<br />
+解释：正常情况下，TC会自动删除不再需要的临时文件。</li>
+  <li>重新对tc3_test.zip/index.htm 按F3查看，并点击链接“推荐软件”。此时会提示找不到目标文件。<br />
+  </li>
+  <li>再按7查看源文件，知此链接为同路径下的list.htm。为什么找不到呢？你应该猜到，这是因为TC仅仅解压了 index.htm到temp\_tc下，并没有解压list.htm文件。<br />
+    <span style="font-weight: bold;">结论</span>：默认情况下，TC只解压当前选中的文件，以保持较快的运行速度。</li>
+  <li>如果不是按F3，而是按Enter用浏览器打开index.htm。<br />
+这时会发现，一方面，点击链接“推荐软件”仍然无法打开目标文件，原因同上。<br />
+另一方面，TC会有如下提示，其含义是：TC生成了临时文件，而浏览器正在使用它，请你在不再需要这一临时文件时，告诉TC，以便于它删除。<br />
+    <img style="width: 321px; height: 106px;" alt="图：TC提示" src="tc3_013.png"></li>
+  <li>如果你不需要此文件了，就可以点“关闭”，让TC删除临时文件。如果你暂时不想删除，可以点“后台”，也就是让警告窗口不要抢占TC主窗口的焦点，以便于其他工作。请点击“后台”或按F2。</li>
+  <li>这时，又回到TC主窗口，请试图直接关闭TC。会有如下提示，可见TC比较注重清理临时文件，以免生成垃圾。<br />
+    <img style="width: 350px; height: 139px;" alt="图：TC提示" src="tc3_014.png"><br />
+  </li>
+</ol>
+<br />
+<h3 id="h2.7">7. 全部解压　<sup><a href="#index">[↖]</a></sup></h3>
+　　做完上面的体验，我们发现，TC只会自动解压当前的文件。但在实际应用中，文件之间经常会有关联。比如我们执行exe，会调用dll；打开index.htm，会链接其他htm。最理想的应对机制，当然是TC自动发现还需要哪些关联文件，并自动解压。但目前包括TC在内的软件，还不能完美地做到这一点，只能提供一个稍笨的做法：把压缩包的内容<span style="font-weight: bold;">全部</span>自动解压。<br />
+<ol>
+  <li>进入tc3_test.zip，选中index.htm，按<span style="font-weight: bold;">Alt+enter</span>。</li>
+  <li>TC弹出如下对话框。“关闭”相当于取消，适用于Alt+enter是误按的情况；“解压并运行”，相当于直接按Enter，当然也不是我们要的结果；“全部解压并运行”，正是我们所需。<br />
+    <img style="width: 341px; height: 375px;" alt="图" src="tc3_015.png"></li>
+  <li>这时，index.htm在浏览器中打开，点击链接“推荐软件”，可以正常打开。</li>
+  <li>再看TC，仍提示如下，以便于TC删除临时文件。<br />
+    <img style="width: 180px; height: 100px;" alt="图：TC提示" src="tc3_016.png"></li>
+</ol>
+　　由上述的对话框可知，由于此对话框不能置于后台，因此，只能及时处理后点“确定”，再进行其他TC操作。另外，这种全解压只适用于外部程序打开文件，不适用于TC自身的F3功能。<br />
+　　当然，事无绝对，高手总有路可走。比如，你可以再打开一个TC。当然，前提是“配置:操作方式”中，未选中“只允许一个TC运行”）。这样，你既可以在临时文件删除之前进行其他操作，也可以启用内部的F3功能来查看关联文件。<br />
+<br />
+<h3 id="h2.8">8.&nbsp;对压缩包内多个文件F3　<sup><a href="#index">[↖]</a></sup></h3>
+<ol>
+  <li>选中tc3_test.zip 内的全部两个文件。</li>
+  <li>按F3。请猜一下结果！<br />
+多数情况下，是对index.htm的预览。<br />
+这时的机制是：F3按当前排序预览第一个文件。也就是说，如果你把文件名改为逆向排序，则会预览list.htm。<br />
+此外，一些相关选项可参见“配置→操作方式→编辑查看→按F3调用的查看程序”相关设置，及F1相应帮助。</li>
+  <li>按n或p，可多次按下，进行查看。<br />
+其结果应该是在选中的文件（现在只有2个）之间，向后（n:next）或向前（p:previous）切换。</li>
+  <li>既然两个文件均已解压，自然可以在index.htm中点击链接，直接跳入list.htm了。</li>
+</ol>
+<h2 id="h3">三、压缩包与exe　<sup><a href="#index">[↖]</a></sup></h2>
+<h3 id="h3.1">1. ctrl+PageDown　<sup><a href="#index">[↖]</a></sup></h3>
+　　当你下载了一个新软件，并且需要安装才能运行时，你会怎样做呢？直接安装？这有点冒险。用影子系统等工具？有道理。笔者的做法是，先Ctrl+
+pagedown看看。<br />
+　　请找到TC的官方安装文件，tcmd702a.exe，按下Ctrl+pagedown，是不是进入到了exe的内部呢？看到如下的文件。<br />
+<div style="margin-left: 80px;">FILE_ID.DIZ<br />
+INSTALL.CAB<br />
+INSTALL.EXE<br />
+INSTALL.INF<br />
+LIESMICH.TXT<br />
+README.TXT<br />
+</div>
+　　exe怎么能打开呢？因为很多安装文件，表面是exe格式，实际内部是压缩包。因此，很多情况下，对exe格式的安装文件来一个Ctrl+ pagedown，都有可能发现不少信息。<br />
+　　对上述的install.cab再次打开，可以发现TC文件夹下的文件基本都在这里。也就是说，TC其实是可以不安装，直接解来用的。<br />
+　　作业：请你对张学思汉化版的安装文件进行同样操作，查看其内容；如果你的计算机上还有其他exe格式的安装文件，请同样查看；将ctrl+ pagedown换为ctrl+←、ctrl+→，并明白它们的区别。<br />
+<br />
+<h3 id="h3.2">2. F2:从zip到exe　<sup><a href="#index">[↖]</a></sup></h3>
+　　请选中刚才下载的tc3_test.zip，按F2。是否有反应？正确的结果是进入改名状态，规范说法是“重命名”。关于重命名及批量重命名，我们将在后面专题介绍。当然，你也可以提前阅读相关帮助。<br />
+　　如果按F2没有预期反应，说明你的配置与笔者不同，建议进行更改：在wincmd.ini中[Shortcuts]段，增加一行：<br />
+<div style="margin-left: 40px;">F2=cm_RenameOnly<br /></div>
+之所以如此更改，是因为F2改名是Windows下默认习惯，建议保留。或者，你用TC默认的Shift+F6.<br />
+　　<br />
+　　请按2次F2或Shift+F6，进行改名。按2次，是因为按一次是选中文件名，再按一次，连后缀一起选中。<br />
+　　将tc3_test.zip的后缀从zip改为exe，按Enter。一定要按Enter，这是与Windows不同的地方，改名之后一定要确认！<br />
+　　这时，TC提示如下：<br />
+　　<img style="width: 210px; height: 119px;" alt="图：TC提示" src="tc3_017.png"><br />
+　　点击“是”，则zip改名为exe，并且，体积增大（因为加入了自解压代码），成为了真正的自解压文件。<br />
+<br />
+　　注意，把exe改回zip并不能恢复到原来的纯zip文件。<br />
+<h2 id="h4">四、更多压缩格式及插件　<sup><a href="#index">[↖]</a></sup></h2>
+<h3 id="h4.1">1. 压缩的一般原则　<sup><a href="#index">[↖]</a></sup></h3>
+　　关于压缩，xbeta倡导如下原则。相关解释见《<a href="http://blog.sina.com.cn/s/blog_46dac66f0100007e.html" target="_blank">善用7-Zip，代替收费的Winrar和Winzip</a>》。
+<ol>
+  <li>格式首选zip：原因是最通用，TC本身全面支持。<br />
+如有特殊需要，则选7z格式：比如邮件程序可以检查到zip内的exe，有时会因安全而被拒绝，换成7z则顺利发送；再如，某些免费服务最大允许3MB文件，而zip后恰为
+3.3MB，此时有可能7z格式压缩到更小。<br />
+不太建议用rar格式。</li>
+  <li>软件通常一个TC足矣，不再需要专门压缩软件；<br />
+如有特殊需要，则安装一个免费开源的7-Zip软件；<br />
+不推荐收费的WinZip和Winrar软件。</li>
+</ol>
+　　基于zip原则，因为Total Commander已经内置了zip功能，所以无须任何插件和设置，TC即可处理绝大多数压缩相关工作。<br />
+<h3 id="h4.2">2. 7-Zip插件　<sup><a href="#index">[↖]</a></sup></h3>
+　　除zip外，TC自身还可以解压多种其他格式，生成稍少的几种格式。此外的更多格式，就要靠相应插件来实现。以下仅介绍7zip插件。
+　　7z 是一种新的压缩格式，它拥有目前最高的压缩比。其特征是：公开的结构编辑功能；最高的压缩比；强大的 AES-256加密；可更改和配置压缩的算法；最高支持 16000000000 GB 的文件压缩；以 Unicode 为标准的文件名；支持固实压缩；支持档案的文件头压缩……<br />
+<br />
+　　插件在哪里下载呢？推荐2处：<br />
+<ul>
+  <li>TC官网<a href="http://www.ghisler.com/plugins.htm" target="_blank">www.ghisler.com/plugins.htm</a><br />
+优点：经过TC作者认可。缺点：更新（新版本、新插件）稍慢。</li>
+  <li><a href="http://www.totalcmd.net/" target="_blank">www.totalcmd.net</a><br />
+优点：比官网更多、更全，可算作最有影响的TC插件网站。</li>
+</ul>
+　　如果你不记得它们，也没关系，可以通过搜索方式，但这是有风险的。我刚刚Google“Total Commander 7z”，按第一结果进入了7z插件，后来发现不太对。再到<a href="http://www.totalcmd.net/" target="_blank">www.totalcmd.net</a>和水木社区TC版搜7z，发现经典的插件是7zip，而不是7z。教训：插件是第3方开发，你可以开发，我也可以开发，所以，相同功能的插件可能有多个。选取原则：下载量多的、仍在更新的、多数人在用的。<br />
+　　在<a href="http://www.totalcmd.net/plugring/7zip_plugin.html">7Zip Plugin</a>页面<a href="http://www.totalcmd.net/download.php?id=7zip_plugin" target="_blank">下载</a>后，双击进入，按TC提示进行安装，安装后自动进入配置界面，确认即可。<br />
+<img style="width: 460px; height: 254px;" alt="图" src="tc3_018.png"><br />
+　　这样安装并设置后，就可以Alt+F5，生成7z文件，也可以双击7z文件，就象处理zip、文件夹一样了。它还提供了相应的设置选项，其中张学思版已含了7zip插件的汉化版，设置界面如下。可以设置压缩等级、压缩格式、密码等选项。 <br />
+<img style="width: 542px; height: 282px;" alt="tc3_019.png" src="tc3_019.png"><br />
+<br />
+<h3 id="h4.3">3. 更多压缩插件　<sup><a href="#index">[↖]</a></sup></h3>
+　　我们多次强调，packer plugin已经超越了原来意义上的压缩，它们具有丰富的功能。仅从TC官网介绍的压缩插件来看，就有30余种，如果你想了解它们的功能，请阅读原文。当然了，英文阅读不便，还是看中文主页吧：<br />
+<ul>
+  <li>TC插件的中文主页：<a href="http://xbeta.info/tc/plugins.htm" target="_blank">http://xbeta.info/tc/plugins.htm</a> <br />
+由xbeta及水木社区TC版网友翻译，如有错误，敬请指出。</li>
+</ul>
+　　其中，比较有特色的有：<br />
+<ol>
+  <li><a href="http://www.totalcmd.net/plugring/chmdir.html">CHMDir 0.40c</a>强烈推荐一下！用来生成chm文件，非常方便。除此之外，我还没发现其他实用的免费chm生成办法。它不太为人所知，或许与TC官网未收录有关。我也是在TC学堂开始后，从张学思版发现了这一令人惊喜的工具。xbeta软件应用技巧合集（<a href="http://www.newsmth.net/att.php?p.99.1147458.18427.zip">xbeta_all_070915.chm.zip</a>）原为htm打包，后用此插件改为chm，方便多了。</li>
+  <li><a href="http://ghisler.fileburst.com/plugins/catalogmaker.zip">Catalog</a> 用来生成文件列表，如本篇开始的视频所示。</li>
+  <li><a href="http://ghisler.fileburst.com/plugins/iclread.zip">ICL</a> 打开和修改ICL图标库文件。</li>
+  <li><a href="http://ghisler.fileburst.com/plugins/makebat.zip">MakeBAT</a> 用来为选定的文件产生批处理(*.bat)文件。可以用来执行某些重复性的任务。也可以用来制作mp3的播放列表。包含源代码！</li>
+  <li><a href="http://ghisler.fileburst.com/plugins/msi_plugin.zip">MSI</a> 打开微软的安装包(*.MSI)文件。</li>
+  <li><a href="http://ghisler.fileburst.com/plugins/totaliso.zip">Total ISO</a>&nbsp;一个用来创建ISO镜像文件的打包/解包器。TotalISO是mkisofs.exe和
+cdimage.exe的前端面板， mkisofs.exe和cdimage.exe需要单独下载。</li>
+  <li><a href="http://ghisler.fileburst.com/plugins/treecopyplus.zip">TreeCopyPlus</a> 用来保持完整目录结构的同时，复制或移动多个文件。</li>
+  <li><a dragover="true" href="http://www.totalcmd.net/plugring/wipe.html">Wipe plugin</a> 参见<a href="http://www.newsmth.net/bbscon.php?bid=837&amp;id=22129">动画教程：TC粉碎文件及插件安装应用</a>&nbsp;</li>
+</ol>
+<br />
+<h2 id="h5">五、总结及作业　<sup><a href="#index">[↖]</a></sup></h2>
+<h3 id="h5.1">1. 总结　<sup><a href="#index">[↖]</a></sup></h3>
+　　zhuangv版主在<a href="http://www.newsmth.net/bbscon.php?bid=837&amp;id=30440&amp;ftype=1&amp;num=223" target="_blank">文章中提到</a>：TC，“从文件管理器的特质来说，它的核心功能首先应该是两大块：目录跳转与定位；文件操作及信息显现。在这两方面性能的高低，直接决定了一款文件管理器的优劣。”这一总结很准确。TC学堂第1讲算是热身，第2讲即是定位选择，属于TC一切操作的基本功。后续内容，也就是从本章�
