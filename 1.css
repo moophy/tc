@@ -1,0 +1,13 @@
+body { padding-right: 5%; padding-left: 5%; padding-bottom: 5%; margin: 0px; font: 14px/1.4 verdana, arial, helvetica, sans-serif; padding-top: 0%; letter-spacing: 0.05em; }
+a:hover {background-color:yellow;}
+p { line-height: 130%; }
+br{letter-spacing: 0em;}
+h1 { text-align: center; padding: 2px;  font-size: 30px;  margin: 0px 0px 8px; color: #666; border-bottom: #666 5px solid; }
+h2 { padding: 2px 2px 0px 2px; margin-top: 5px;  font-size: 22px;  color: #666;  border-bottom: #000000 2px inset; }
+h3 { padding: 2px; margin-top: 5px; font-size: 18px;  color: #666;  line-height: 20px; border-bottom: #000 1px dashed }
+h4 { padding-right: 2px; margin-top: 5px; padding-left: 2px; font-size: 18px; padding-bottom: 2px; color: #666; padding-top: 2px }
+img { border-right: 1px solid; border-top: 0px solid; float: bottom; margin: 0px; border-left: 0px solid; border-bottom: 1px solid }
+blockquote , pre { background-color: #e6e6e6; border: #777777 1px solid; padding: 0.5em; }
+textarea {margin: 0 0 0 2em;}
+li { margin-bottom: 0.9ex line-height: 100%; }
+kbd {font-family: fixed, monospace; background-color:#ddd; outline: 1px solid #bbb; border: 1px solid #bbb; border-top-color: #fff; border-left-color: #fff; min-width:1em; padding:0px 3px; margin:0px 2px}
